@@ -1,0 +1,32 @@
+body {
+    margin: 10px;
+    background-image: url("/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo {
+    width: 50%;
+    height: auto;
+}
+
+p, a, ul, ol {
+    font-size: x-large;
+}
+
+.bucket {
+    width: 22%;
+    height: auto;
+}
+
+.alert {
+    color: red;
+}
+
+.goodbye {
+    color: green;
+}
+
+footer a {
+    font-size: medium;
+}

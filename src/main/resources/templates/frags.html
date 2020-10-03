@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<header th:fragment="header">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a th:href="@{/}">
+                    <img th:src="@{/img/wfc-logo.png}" alt="WFC Logo" class="logo img-fluid">
+                </a>
+            </div>
+            <div class="col">
+                <br/>
+                <br/>
+                <h1 class="float-right align-middle">Wisconsin Fried Chicken</h1>
+            </div>
+        </div>
+        <nav class="nav">
+            <!-- if user is not logged in, show login link -->
+            <div sec:authorize="isAnonymous()">
+                <a class="nav-link" th:href="@{/login}">Login</a>
+            </div>
+            <!-- otherwise -->
+            <!-- greeting and logout -->
+            <div sec:authorize="isAuthenticated()">
+                <h2 th:text="|Hello, ${#authentication.name}|">HELLO</h2>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Log out">
+                </form>
+            </div>
+            <div>
+                <!-- if user is employee or major, show benefits -->
+                <div sec:authorize="hasAuthority('employee')">
+                    <a class="nav-link" th:href="@{/benefits}">Employee Benefits</a>
+                </div>
+                <div sec:authorize="hasAuthority('major')">
+                    <a class="nav-link" th:href="@{/benefits}">Employee Benefits</a>
+                </div>
+            </div>
+            <div>
+                <!-- if user is major, show secret recipe -->
+                <div sec:authorize="hasAuthority('major')">
+                    <a class="nav-link" th:href="@{/recipe}">Secret Recipe</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <hr>
+</header>
+<footer th:fragment="footer">
+    Fried Chicken Recipe Courtesy of <a
+        href="https://www.foodnetwork.com/recipes/fried-chicken-recipe10-3381583">Food Network
+</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/style/style.css}">
+</head>
+<body>
+<header th:replace="frags :: header"></header>
+<p>Welcome to Wisconsin Fried Chicken (WFC), home of the world-famous (and secret) boneless chicken recipe</p>
+
+<br/>
+<img th:src="@{/img/chicken-bucket.png}" alt="Fried Chicken Bucket" class="bucket img-fluid">
+<br/>
+</body>
+</html>
